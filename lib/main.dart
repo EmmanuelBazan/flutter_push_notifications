@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_push_notifications/services/push_notification_service.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding
+      .ensureInitialized(); //& esperar hasta que la app este inicializada para ejecutar initializeApp de firebase
+  await PushNotificationService.initializeApp();
+
   runApp(const MyApp());
 }
 
+// 9C:14:E1:DD:98:16:FF:F4:93:98:06:12:BF:E5:B6:F3:A0:B9:76:E9
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -59,23 +65,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
       _counter++;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
         // TRY THIS: Try changing the color here to a specific color (to
