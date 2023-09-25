@@ -10,8 +10,21 @@ void main() async {
 }
 
 // 9C:14:E1:DD:98:16:FF:F4:93:98:06:12:BF:E5:B6:F3:A0:B9:76:E9
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    super.initState();
+    PushNotificationService.messageStream.listen((message) {
+      // print('✅✅✅ My app: $message');
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
