@@ -14,17 +14,17 @@ class PushNotificationService {
 
   static Future _backgroundHandler(RemoteMessage message) async {
     print('✅ Notification data ${message.data}');
-    _messageStreamController.add(message.notification?.title ?? 'No title');
+    _messageStreamController.add(message.data['product'] ?? 'No title');
   }
 
   static Future _onMessageHandler(RemoteMessage message) async {
     print('✅ Notification data ${message.data}');
-    _messageStreamController.add(message.notification?.title ?? 'No title');
+    _messageStreamController.add(message.data['product'] ?? 'No title');
   }
 
   static Future _onMessageOpenApp(RemoteMessage message) async {
     print('✅ Notification data ${message.data}');
-    _messageStreamController.add(message.notification?.title ?? 'No title');
+    _messageStreamController.add(message.data['product'] ?? 'No title');
   }
 
   static Future initializeApp() async {
